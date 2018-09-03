@@ -21,6 +21,12 @@
 .navbar {
   background: #383838;
 }
+.front{
+  background-color: #007bff;
+}
+.back{
+  background-color: #007bff;
+}
 
 .header-top {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
@@ -40,8 +46,8 @@
   width: 60px;
   border-radius: 100%;
   position: relative;
-    left: 480px;
-    top: 230px;
+  left: -40px;
+
 }
 
 
@@ -80,6 +86,34 @@
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.list-group-item{
+  display: inline-block;
+  width: 100%;
+  border-radius: 0;
+}
+
+.card-list{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.exampleModal{
+  width: 100%;
+}
+
+.modal-dialog{
+  width: 100%;
+}
+
+h5{
+  color: white;
+}
+
+.addCard{
+  width: 100%;
+  height: 200px;
 }
 
 
@@ -158,6 +192,7 @@
 
       <div class="row">
         <div class="col-sm">
+            <button type="button"  id="plus-button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-lg">+</button>
         </div>
         <div class="col-sm"></div>
         <div class="col-sm"></div>
@@ -165,6 +200,7 @@
           
         </div>
         <div class="col-sm">
+            
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Location
@@ -183,7 +219,7 @@
       <div class="container room-store">
         <div class="row room-store">
           <div class="col-sm">
-              <button type="button" class="btn btn-class btn-dark btn-lg animated jackInTheBox">Scrum: <span class="badge">7</span></button>
+              <button type="button" class="btn btn-class btn-dark btn-lg animated jackInTheBox" data-toggle="modal" data-target="#roomModal">Scrum: <span class="badge">2</span></button>
           </div>
           <div class="col-sm">
               <button type="button" class="btn btn-class btn-dark btn-lg animated jackInTheBox">Recreational: <span class="badge">7</span></button>
@@ -228,30 +264,182 @@
               </div>
               
             </div>
-            <button type="button"  id="plus-button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-lg">+</button>
+            
 
           </div>
       </div>
 
       <!-- Modal -->
+
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Scrum" aria-hidden="true">
+
+      </div>
+
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="Scrum" aria-hidden="true">
+
+      </div>
+
+
+
+
+
+      <div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="Scrum" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Scrum</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm">
+                <div class="flip text-center"> 
+                    <div class="front card" style="width: 5rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">My Scrum 1</h5>
+                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+                        </div>
+                      </div>
+                      <div class="back card" style="width: 5rem;">
+                        <div class="container-fluid">
+                        <div class="row">
+                          
+                          <div class="col card-list">
+                              <li class="list-group-item">
+                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                              </li>
+                              <li class="list-group-item">
+                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                              </li>
+                              <li class="list-group-item">
+                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                              </li>
+                            </div>
+                          <div class="col card-list">
+                              <li class="list-group-item">5</li>
+                              <li class="list-group-item">3</li>
+                              <li class="list-group-item">7</li>
+                          </div>
+                        </div>
+                        <div class="row">
+        
+                          <div class="card-body">
+                              <button type="button" class="btn btn-default btn-sm btn-room-edit" data-dismiss="modal">
+                                  <span class="glyphicon glyphicon-wrench"></span> Edit
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm btn-room-delete" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-trash"></span> Delete 
+                                </button>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-sm">
+                    <div class="flip text-center"> 
+                        <div class="front card" style="width: 5rem;">
+                            <div class="card-body">
+                              <h5 class="card-title">My Scrum 2</h5>
+                              <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+                            </div>
+                          </div>
+                          <div class="back card" style="width: 5rem;">
+                            <div class="container-fluid">
+                            <div class="row">
+                              
+                              <div class="col card-list">
+                                  <li class="list-group-item">
+                                      <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                  </li>
+                                  <li class="list-group-item">
+                                      <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                  </li>
+                                  <li class="list-group-item">
+                                      <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                  </li>
+                                </div>
+                              <div class="col card-list">
+                                  <li class="list-group-item">5</li>
+                                  <li class="list-group-item">3</li>
+                                  <li class="list-group-item">7</li>
+                              </div>
+                            </div>
+                            <div class="row">
+            
+                              <div class="card-body">
+                                  <button type="button" class="btn btn-default btn-sm btn-room-edit" data-dismiss="modal">
+                                      <span class="glyphicon glyphicon-wrench"></span> Edit
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm btn-room-delete" data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-trash"></span> Delete 
+                                    </button>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+              </div>
+              </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+    <div class="modal-dialog" role="document"> 
+    <div class="modal-content">
+    <div class="modal-body"> 
+    <div class="container-fluid ">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+                <div class="card-title" style="text-align:center;">
+                  What to add?
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col card-list">
+              <button type="button" class="btn-primary" data-dismiss="modal"> 
+              <div class="card-body" data-hide="modal">
+                Add new room type
+              </div>
+              <div class="card-body">
+                <img src="Icon-Placeholder.png" style="width: 4rem; height: 4rem; display: block; margin: auto;"/>
+              </div>
             </button>
           </div>
-          <div class="modal-body">
-            ...
+          <div class="col card-list">
+              <button type="button" class="btn-primary" data-dismiss="modal"> 
+              <div class="card-body">
+                Add new feature type
+              </div>
+              <div class="card-body">
+                  <img src="Icon-Placeholder.png" style="width: 4rem; height: 4rem; display: block; margin: auto;"/>
+                </div>
+              </button>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div class="col card-list">
+              <button type="button" class="btn-primary" data-dismiss="modal"> 
+                  <div class="card-body">
+                    add new room           
+                  </div>
+                  <div class="card-body">
+                      <img src="Icon-Placeholder.png" style="width: 4rem; height: 4rem; display: block; margin: auto;"/>
+                    </div>
+                  </button>
           </div>
         </div>
+        </div>
+        </div>
       </div>
+    </div>
     </div>
 
 
@@ -269,6 +457,7 @@
 <script src="jquerylib.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/flip.min.js"></script>
  
   <script type="text/javascript">
 
@@ -280,6 +469,11 @@ $(document).ready(function() {
     $('.side-nav').toggleClass('open');
     e.preventDefault();
   });
+  $(function(){
+    $(".flip").flip({
+      trigger: 'click'
+      });
+    });
 });
 </script>
 <script>
