@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Utilization 
+    </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <style>
+      #SRMS {
+        font-size: 30px;
+      }
+      .navbar-expand-lg .navbar-nav.side-nav {
+        flex-direction: column;
+      }
+      .navbar {
+        background: #383838;
+      }
+
+      .header-top {
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+      }
+      .leftmenutrigger {
+        display: none;
+      }
+      .openButton{
+        border-style: none;
+        background: #585f66;
+        cursor: pointer;
+      }
+      #table-row-1 {
+        display: none;
+      }
+      #sort-op{
+        display: none;
+      }
+      @media (min-width: 992px) {
+        .leftmenutrigger {
+          display: block;
+          display: block;
+          margin: 7px 20px 4px 0;
+          cursor: pointer;
+        }
+        #wrapper {
+          padding: 55px 15px 0px 15px;
+        }
+        .navbar-nav.side-nav.open {
+          left: 0;
+        }
+        .navbar-nav.side-nav {
+          background: #585f66;
+          box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.1);
+          position: fixed;
+          top: 56px;
+          flex-direction: column !important;
+          left: -220px;
+          width: 200px;
+          overflow-y: auto;
+          bottom: 0;
+          overflow-x: hidden;
+          padding-bottom: 40px;
+        }
+      }
+      .animate {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      @media (max-width: 992px) {
+        #hamBurgerMenu {
+          display: none;
+        }
+        #containIt{
+          padding-top: 100px;
+        }
+        #mod-button{
+          display: none;
+        }
+        #sort-op, #table-row-1{
+          display: block;
+        }
+      }
+      @media (max-width: 600px){ .welcome-tag{ display: none} }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper" class="animate">
+      <nav id= "navigation" class="navbar header-top fixed-top navbar-expand-lg  navbar-dark ">
+        <span id="hamBurgerMenu" class="navbar-toggler-icon light leftmenutrigger" ></span>
+        <a class="navbar-brand" href="LandingPage.html">SRMS</a>
+        <a class="navbar-brand welcome-tag" href="#">Welcome: Zohaib</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav animate side-nav" id="ulSideNav">
+            <li class="nav-item">
+              <a class="nav-link" href="LandingPage.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">View Reservations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Manage Locations</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Visitor Log</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-md-auto d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#">User</a>
+            </li>
+            <li class="nav-item" id="sort-op">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Sort Options</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+      <div id="mod-button" class="row" style="margin-top: 10px;">
+        <div class="col">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Location
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button">Phoenix</button>
+                  <button class="dropdown-item" type="button">Memphis</button>
+                  <button class="dropdown-item" type="button">Nashville</button>
+                </div>
+              </div>
+            </div>
+          <div class="col"></div>
+        </div>
+      </div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          View Sort Options
+        </button>
+      </div>
+    </div>
+  <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sort by</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-sm ">
+              <tbody>
+                <tr>
+                  <div  id="table-row-1" class="dropdown">
+                    <button class="btn btn-dark btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Location
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <button class="dropdown-item" type="button">Phoenix</button>
+                      <button class="dropdown-item" type="button">Memphis</button>
+                      <button class="dropdown-item" type="button">Nashville</button>
+                    </div>
+                  </div>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                          
+                        Room Type
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Scrum Room</a>
+                        <a class="dropdown-item" href="#">Conference Room</a>
+                        <a class="dropdown-item" href="#">Rec room</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                          
+                        Utilization
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Daily</a>
+                        <a class="dropdown-item" href="#">Weeky</a>
+                        <a class="dropdown-item" href="#">Monthly</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="date" name="date" id="From-Date"/></td>
+                  <td><input type="date" name="date" id="To-Date"/></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Sort</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="containIt">
+      <!--Row with two equal columns-->
+      <div class="row">
+        <div class="col-lg-6">
+          <canvas id="myChart" width="400" height="300"></canvas>
+        </div>
+        <div class="col-lg-6">
+          <canvas id="donutChart" width="400" height="300"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary">
+          Download PDF
+        </button>
+      </div>
+    </div>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/popper.js"></script>  
+    <script src="jquerylib.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var active = false;
+        $('.dropdown-toggle').dropdown();
+          $('.leftmenutrigger').on('click', function(e) {
+            $('.side-nav').toggleClass('open');
+            e.preventDefault();
+          });
+          $('.button-sort').on('click',function(){
+            if(active){
+              $('.twoRows').css('display','none');
+              active = false;
+            }else{
+              $('.twoRows').css('display','block');
+              active = true;
+            }
+          })
+          $(function() {
+            var ctx1 = $('#donutChart');
+            var data1 = {
+              labels: ['match1', 'match2', 'match3', 'match4', 'match5'],
+              datasets: [
+              {
+                label: 'TeamA Score',
+                data: [10, 50, 25, 70, 40],
+                backgroundColor: [
+                  '#cc2462',
+                  '#bf1616',
+                  '#ecf24b',
+                  '#0faf22',
+                  '#1c87d8'
+                ],
+                borderColor: [
+                  '#cc2462',
+                  '#bf1616',
+                  '#ecf24b',
+                  '#0faf22',
+                  '#1c87d8'
+                ],
+                borderWidth: [1, 1, 1, 1, 1]
+                }
+              ]
+            };
+          //options
+          var options = {
+            responsive: true,
+            title: {
+              display: true,
+              position: 'top',
+              text: 'Doughnut Chart',
+              fontSize: 18,
+              fontColor: '#111'
+            },
+            legend: {
+              display: true,
+              position: 'bottom',
+              labels: {
+                fontColor: '#333',
+                fontSize: 16
+              }
+            }
+          };
+          //create Chart class object
+          var chart1 = new Chart(ctx1, {
+            type: 'doughnut',
+            data: data1,
+            options: options
+          });
+        });
+});
+</script>
+<script>
+
+  function myfunction(){
+    alert("HI");
+  }
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Dark Pink', 'Red', 'Yellow', 'Green', 'Blue', 'Pink'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+            '#cc2462',
+            '#bf1616',
+            '#ecf24b',
+            '#0faf22',
+            '#1c87d8',
+            '#e26c90'
+          ],
+        borderColor:[
+            '#cc2462',
+            '#bf1616',
+            '#ecf24b',
+            '#0faf22',
+            '#1c87d8',
+            '#e26c90'
+          ],
+        borderWidth: 1
+      }
+    ]
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
+  }
+});
+
+
+</script>
+
+  </body>
+</html>
+
+
+<!-- https://bootsnipp.com/snippets/featured/bootstrap-v4-side-toggle-and-fixed-top-menu-responsive -->

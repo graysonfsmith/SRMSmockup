@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <title>
+            Reservations
+        </title>
+        <link rel="stylesheet" href="css/animate.css" />
+        <link rel="stylesheet" href="css/fullcalendar.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <style>
+            #SRMS {
+                font-size: 30px;
+            }
+            .navbar-expand-lg .navbar-nav.side-nav {
+                flex-direction: column;
+            }
+            .navbar {
+                background: #383838;
+            }
+            .btn-dark{
+                margin-bottom: 4px;
+                margin-top: 3px;
+            }
+            .header-top {
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            }
+            .leftmenutrigger {
+                display: none;
+            }
+            .openButton{
+                border-style: none;
+                background: #585f66;
+                cursor: pointer;
+            }
+            #wrapper {
+                padding: 65px 15px 0px 15px;
+            }
+            .dropdown-row{
+                margin-bottom: 4px;
+            }
+            .flip {
+                height: 100px;
+                width: 120px;
+                text-align: center;
+                margin: 5px;
+                display: inline-block;
+            }
+            .flip .front {
+                height: auto;
+                background: #585f66;
+                color: #fff;
+            }
+            .flip .back {
+                background: #2184cd;
+                color: #fff;
+            }
+            @media (min-width: 992px) {
+                .leftmenutrigger {
+                    display: block;
+                    display: block;
+                    margin: 7px 20px 4px 0;
+                    cursor: pointer;
+                }
+                #wrapper {
+                    padding: 65px 15px 0px 15px;
+                }
+                .navbar-nav.side-nav.open {
+                    left: 0;
+                }
+                .navbar-nav.side-nav {
+                    background: #585f66;
+                    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.1);
+                    position: fixed;
+                    top: 56px;
+                    flex-direction: column !important;
+                    left: -220px;
+                    width: 200px;
+                    overflow-y: auto;
+                    bottom: 0;
+                    overflow-x: hidden;
+                    padding-bottom: 40px;
+                }
+            }
+            .animate {
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                -ms-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+            @media (max-width: 992px) {
+                #hamBurgerMenu {
+                    display: none;
+                }
+                #containIt{
+                    padding-top: 100px;
+                }
+                #mod-button{
+                    display: none;
+                }
+                #sort-op, #table-row-1{
+                    display: block;
+                }
+            }
+            @media (max-width: 600px){ .welcome-tag{ display: none} }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="animate">
+            <nav id= "navigation" class="navbar header-top fixed-top navbar-expand-lg  navbar-dark ">
+                <span id="hamBurgerMenu" class="navbar-toggler-icon light leftmenutrigger" ></span>
+                <a class="navbar-brand" href="LandingPage.html">SRMS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav animate side-nav" id="ulSideNav">
+                    <li class="nav-item">
+                    <a class="nav-link" href="LandingPage.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="utilPage.html" >Reports</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="reservations.html">View Reservations</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="ManageLocations.html">Manage Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visitortable.html">Visitor Log</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-md-auto d-md-flex">
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Zohaib</a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="row dropdown-row">
+                <div class="dropdown offset-sm-11">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Location
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Phoenix</a>
+                        <a class="dropdown-item" href="#">Memphis</a>
+                        <a class="dropdown-item" href="#">Nashville</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style= "overflow-x: scroll; overflow-y: hidden; white-space: nowrap ">
+                <div class="col-sm">
+                    <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#scrumModal" style="margin-bottom: 5px; display: inline-block; height: 80px; width: 100px;">Scrum</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="calendar" style="width: 100%; height: 430px; ">
+                <iframe src="https://calendar.google.com/calendar/embed?mode=WEEK&amp;height=430&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=dsb5m5q2ob12lt9mqtf049k41c%40group.calendar.google.com&amp;color=%236B3304&amp;ctz=America%2FPhoenix" style="border-width:0" width="1100" height="430" frameborder="0" scrolling="no"></iframe>
+
+        <!-- Modlas -->
+        <div class="modal fade" id="scrumModal" tabindex="-1" role="dialog" aria-labelledby="Scrum" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Scrum</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="flip text-center"> 
+                        <div class="front"> 
+                            Scrum 1
+                        </div> 
+                        <div class="back">
+                            <h3>Some Text in the Back!</h3>
+                        </div> 
+                    </div>
+                    <div class="flip text-center"> 
+                        <div class="front"> 
+                            Scrum 1
+                        </div> 
+                        <div class="back">
+                            <h3>Some Text in the Back!</h3>
+                        </div> 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="jquerylib.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/flip.min.js"></script>
+        <script src="js/moment.js"></script>
+        <script src="js/fullcalendar.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var active = false;
+                $('.dropdown-toggle').dropdown();
+                $('.leftmenutrigger').on('click', function(e) {
+                    $('.side-nav').toggleClass('open');
+                    e.preventDefault();
+                });
+                $(function(){
+                    $(".flip").flip({
+                        trigger: 'click'
+                    });
+                });
+                
+            });
+        </script>
+        
+    </body>
+
+
+</html>
