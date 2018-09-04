@@ -5,12 +5,14 @@
         <title>
             Landing 
         </title>
-        <link rel="stylesheet" href="css/animate.css"/>
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href=".\css\animate.css"/>
+        <link rel="stylesheet" href=".\css\bootstrap.css"/>
+        <link rel="stylesheet" href=".\css\all.css"/>
+
         <style>
             body{
                 background: #F5F5F5;
+                overflow-y: hidden;
             }
             #SRMS {
                 font-size: 30px;
@@ -28,7 +30,7 @@
                 display: none;
             }
             #wrapper {
-                padding: 90px 25px 0px 25px;
+                padding: 90px 15px 0px 15px;
             }
             .btn{
                 padding: 30px;
@@ -46,7 +48,7 @@
                     cursor: pointer;
                 }
                 #wrapper {
-                    padding:50px 25px 0px 25px;
+                    padding:50px 15px 0px 15px;
                 }
                 .navbar-nav.side-nav.open {
                     left: 0;
@@ -64,6 +66,17 @@
                     overflow-x: hidden;
                     padding-bottom: 30px;
                 }
+            }
+
+            .row{
+                margin-right: -15px;
+                margin-left: -15px;
+            }
+            .container {
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
             }
             .animate {
                 -webkit-transition: all 0.3s ease-in-out;
@@ -108,7 +121,7 @@
                 letter-spacing: 0.8rem;
                 background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
                 -webkit-text-fill-color: transparent;
-                
+                -webkit-background-clip: text;
                 }
 
             .masthead h2 {
@@ -141,12 +154,10 @@
         </style>
     </head>
     <body>
-        
-        <div class="container text-center">
-            <div id="wrapper" class="animate">
+        <div id="wrapper" class="animate">
             <nav id= "navigation" class="navbar header-top fixed-top navbar-expand-lg  navbar-dark ">
                 <span id="hamBurgerMenu" class="navbar-toggler-icon light leftmenutrigger" ></span>
-                <a class="navbar-brand" href="#">SRMS</a>
+                <a class="navbar-brand" href="LandingPage.html"><i class = "fa fa-home" style = "font-size: 24px;"></i></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -154,7 +165,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav animate side-nav" id="ulSideNav">
                         <li class="nav-item">
-                            <a class="nav-link" href="LandingPage.html">Home
+                            <a class="nav-link" href="#">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -174,44 +185,45 @@
                     </ul>
                     <ul class="navbar-nav ml-md-auto d-md-flex">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ahmad</a>
+                            <a class="nav-link" href="#"><i class = "fa fa-user-circle" style = "font-size: 24px;"></i></a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
+        <div class="container text-center">
             <header class="masthead">
                 <div class="container d-flex h-100 align-items-center">
                     <div class="mx-auto text-center">
                         <div class = "col-sm animated fadeIn">
                         <h1 class="mx-auto my-0 text-uppercase">Resource Management</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">Dashboard Interface</h2>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5"></h2>
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="col-sm">
-                                        <button type="button" id="rsvtn" value = "reservations.html" class="btn btn-secondary btn-lg btn-block">View Reservations</button>
+                                        <button type="button" id = "rsvtn" value = "reservations.html" class="btn btn-secondary btn-lg btn-block"><i class = "fa fa-calendar-plus" style = "font-size: 48px; text-shadow:2px 2px 4px #000000;"></i> </button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class = "col-sm">
-                                        <button type="button" id="util" value="utilPage.html" class="btn btn-primary btn-lg btn-block">Utilization Reports</button>
+                                        <button type="button" id="util" value="utilPage.html" class="btn btn-primary btn-lg btn-block"><i class = "fa fa-chart-bar" style = "font-size: 48px; text-shadow:2px 2px 4px #000000;"></i></button>
                                     </div>
                                 </div>
                                 <div class = "col-sm">
                                     <div class="col-sm">
-                                        <button type="button" id="locat" value="ManageLocations.html" class="btn btn-success btn-lg btn-block">Manage Locations</button>
+                                        <button type="button" id = "locat" value = "ManageLocations.html" class="btn btn-success btn-lg btn-block"><i class = "fa fa-clipboard" style = "font-size: 48px; text-shadow:2px 2px 4px #000000;"></i></button>
                                     </div>
                                 </div>
                             </div>
                             <div class = "row">
                                 <div class="col-sm">
                                     <div class = "col-sm">
-                                        <button type="button" id="vis" value="visitortable.html" class="btn btn-danger btn-lg btn-block">Visitor Reports</button>
+                                        <button type="button" id="vis" value = "visitortable.html" class="btn btn-danger btn-lg btn-block"><i class = "fa fa-database" style = "font-size: 48px; text-shadow:2px 2px 4px #000000;"></i></button>
                                     </div>
                                 </div>
                                 <div class = "col-sm">
                                     <div class = "col-sm">
-                                        <button type="button" value="#" class="btn btn-dark btn-lg btn-block">User Options</button>
+                                        <button type="button" class="btn btn-dark btn-lg btn-block"><i class = "fa fa-id-card" style = "font-size: 48px; text-shadow:2px 2px 4px #000000;"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -226,8 +238,8 @@
             </div>    
         </div>
         <script src="jquerylib.js"></script>
-        <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap.js"></script>
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $('.dropdown-toggle').dropdown();
@@ -240,8 +252,17 @@
                 // }).on("mouseleave", function () {
                 //     $( this ).css('background','none');
                 // });
-                $("#util, #rsvtn, #locat, #vis").on('click',function(){
+                $("#util").on('click',function(){
                      document.location.href = $(this).val();
+                });
+                $("#rsvtn").on('click',function(){
+                     document.location.href = $(this).val();
+                });
+                $("#locat").on('click',function(){
+                     document.location.href = $(this).val();
+                });
+                $("#vis").on('click',function(){
+                     document.location.href = $(this).val();         
                 });
             });
         </script>
