@@ -61,6 +61,9 @@
     margin: 7px 20px 4px 0;
     cursor: pointer;
   }
+  #show-op{
+    display: none;
+  }
   #wrapper {
     padding: 70px 15px 15px 15px;
   }
@@ -121,7 +124,7 @@ h5{
 
 
 @media (max-width: 992px) {
-  #hamBurgerMenu {
+  #hamBurgerMenu, .dropdown {
     display: none;
   }
   #containIt{
@@ -175,13 +178,23 @@ h5{
           </li>
         </ul>
 
-          <ul class="navbar-nav ml-md-auto d-md-flex">
-
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class = "fa fa-user-circle" style = "font-size: 24px;"></i></a>
+        <ul class="navbar-nav ml-md-auto d-md-flex">
+            <li class="nav-item" id="show-op">
+                <a class="nav-link" href="UserOptions.html">User Options</a>
             </li>
-
-          </ul>
+            <li class="nav-item" id="show-op">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+            <li class="nav-item" id="dropdown">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" style="margin-left: 100px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class = "fa fa-user-circle" style = "font-size: 24px;"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="UserOptions.html">User Options</a>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
 
         </div>
 
