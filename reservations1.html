@@ -41,9 +41,6 @@
                         margin: 7px 20px 4px 0;
                         cursor: pointer;
                     }
-                    #show-op{
-                        display: none;
-                    }
                     #wrapper {
                         padding:60px 15px 0px 15px;
                     }
@@ -200,26 +197,7 @@
     <script src="js/fullcalendar.js"></script>
     <script>
          $(document).ready(function() {
-            var events_array = [
-                {
-                    title: "Scrum Meeting",
-                    start: moment().startOf('month'),
-                    end: moment().startOf('month').add(90, 'minutes'),
-                    color: "red"
-                },
-                {
-                    title: "Board Meeting",
-                    start: moment().startOf('month').add(7,"days"),
-                    end: moment().startOf('month').add({'days': 7, 'hours': 3}),
-                    color: "green"
-                },
-                {
-                    title: "Scrum Meeting",
-                    start: moment().startOf('month').add({'days': 5, 'hours': 9}),
-                    end: moment().startOf('month').add({'days': 5, 'hours': 13}),
-                    color: "blue"
-                }
-            ]
+            var active = false;
             $('.dropdown-toggle').dropdown();
             $('.leftmenutrigger').on('click', function(e) {
                 $('.side-nav').toggleClass('open');
@@ -227,37 +205,10 @@
             });
             var $calendar = $('#calendar').fullCalendar(
                 {
-                    weekends: false,
-                    defaultView: 'agendaWeek',
-                    minTime: "07:00:00",
-                    maxTime: "21:00:00",    
                     header:{
                         left: 'prev,next',
                         center: 'title',
                         right: 'today,month,agendaDay,agendaWeek'
-                    },
-                    events: events_array,
-                    selectable: true,
-                    select: function(start,end,jsEvent,view){
-                        var title = prompt("Enter a title for this event", "New event");
-
-                        if(title != null){
-                            var event = {
-                                title: title.trim() != "" ? title: "New event",
-                                start: start,
-                                end: end
-                            };
-                            $calendar.fullCalendar("renderEvent", event, true);
-                        }
-                        $calendar.fullCalendar("unselect");
-                    },
-                    editable: true,
-                    eventClick: function(event,jsEvent, view){
-                        var newTitle = prompt("Enter a new title for this event", event.title);
-                        if(newTitle != null){
-                            event.title = newTitle.trim() != "" ? newTitle : event.title;
-                            $calendar.fullCalendar("updateEvent", event);
-                        }
                     }
                 }
             )

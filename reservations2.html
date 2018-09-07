@@ -1,0 +1,334 @@
+<html>
+    <head>
+        <title>
+            Reservations
+        </title>
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="css/animate.css" />
+        <link rel="stylesheet" href="css/fullcalendar.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href=".\css\all.css"/>
+        <style>
+            #SRMS {
+                font-size: 30px;
+            }
+            .navbar-expand-lg .navbar-nav.side-nav {
+                flex-direction: column;
+            }
+            .navbar {
+                background: #383838;
+            }
+            .card-list{
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .modal-dialog{
+                width: 100%;
+                height: 70%;
+            }
+            .modal-content{
+                width: 100%;
+                height: 100%;
+            }
+            .addCard{
+                width: 100%;
+                height: 200px;
+            }
+            .front{
+                background-color: #007bff;
+            }
+            .back{
+                background-color: #007bff;
+            }
+            .list-group-item{
+                display: inline-block;
+                width: 100%;
+                border-radius: 0;
+            }
+            .btn-dark{
+                margin-bottom: 4px;
+                margin-top: 3px;
+            }
+            .header-top {
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            }
+            .leftmenutrigger {
+                display: none;
+            }
+            .openButton{
+                border-style: none;
+                background: #585f66;
+                cursor: pointer;
+            }
+            #wrapper {
+                padding: 65px 15px 0px 15px;
+            }
+            .dropdown-row{
+                margin-bottom: 4px;
+            }
+            h5{
+            color: white;
+            }
+
+            @media (min-width: 992px) {
+                .leftmenutrigger {
+                    display: block;
+                    display: block;
+                    margin: 7px 20px 4px 0;
+                    cursor: pointer;
+                }
+                #show-op{
+                    display: none;
+                }
+                #wrapper {
+                    padding: 65px 15px 0px 15px;
+                }
+                .navbar-nav.side-nav.open {
+                    left: 0;
+                }
+                .navbar-nav.side-nav {
+                    background: #585f66;
+                    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.1);
+                    position: fixed;
+                    top: 56px;
+                    flex-direction: column !important;
+                    left: -220px;
+                    width: 200px;
+                    overflow-y: auto;
+                    bottom: 0;
+                    overflow-x: hidden;
+                    padding-bottom: 40px;
+                }
+            }
+            .animate {
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                -ms-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+            @media (max-width: 992px) {
+                #hamBurgerMenu, #dropdown {
+                    display: none;
+                }
+                #containIt{
+                    padding-top: 100px;
+                }
+                #mod-button{
+                    display: none;
+                }
+                #sort-op, #table-row-1{
+                    display: block;
+                }
+            }
+            @media (max-width: 600px){ .welcome-tag{ display: none} }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper" class="animate">
+            <nav id= "navigation" class="navbar header-top fixed-top navbar-expand-lg  navbar-dark ">
+                <span id="hamBurgerMenu" class="navbar-toggler-icon light leftmenutrigger" ></span>
+                <a class="navbar-brand" href="LandingPage.html"><i class = "fa fa-home" style = "font-size: 24px;"></i></a>                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav animate side-nav" id="ulSideNav">
+                    <li class="nav-item">
+                    <a class="nav-link" href="LandingPage.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="utilPage.html" >Reports</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="reservations.html">View Reservations</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="ManageLocations.html">Manage Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visitortable.html">Visitor Log</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-md-auto d-md-flex">
+                        <li class="nav-item" id="show-op">
+                            <a class="nav-link" href="UserOptions.html">User Options</a>
+                        </li>
+                        <li class="nav-item" id="show-op">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                        <li class="nav-item" id="dropdown">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" style="margin-left: 100px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class = "fa fa-user-circle" style = "font-size: 24px;"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="UserOptions.html">User Options</a>
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="container-fluid">
+            <div class="row dropdown-row">
+                <div class="dropdown offset-sm-11">
+                    <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Location
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Phoenix</a>
+                        <a class="dropdown-item" href="#">Memphis</a>
+                        <a class="dropdown-item" href="#">Nashville</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style= "overflow-x: scroll; overflow-y: hidden; white-space: nowrap ">
+                <div class="col-sm">
+                    <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#scrumModal" style="margin-bottom: 5px; display: inline-block; height: 80px; width: 100px;">Scrum</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                    <button type="button" class="btn btn-dark btn-sm" style="display: inline-block; height: 80px;">Large button</button>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="calendar" style="width: 100%; height: 430px; "></div>
+        <!-- Modlas -->
+        <div class="modal fade" id="scrumModal" tabindex="-1" role="dialog" aria-labelledby="Scrum" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Scrum</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-sm">
+                          <div class="flip text-center"> 
+                              <div class="front card" style="width: 5rem;">
+                                  <div class="card-body">
+                                    <h5 class="card-title">My Scrum 1</h5>
+                                    <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+                                  </div>
+                                </div>
+                                <div class="back card" style="width: 5rem;">
+                                  <div class="container-fluid">
+                                  <div class="row">
+                                    
+                                    <div class="col card-list">
+                                        <li class="list-group-item">
+                                            <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                        </li>
+                                      </div>
+                                    <div class="col card-list">
+                                        <li class="list-group-item">5</li>
+                                        <li class="list-group-item">3</li>
+                                        <li class="list-group-item">7</li>
+                                    </div>
+                                  </div>
+
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="flip text-center"> 
+                                  <div class="front card" style="width: 5rem;">
+                                      <div class="card-body">
+                                        <h5 class="card-title">My Scrum 2</h5>
+                                        <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+                                      </div>
+                                    </div>
+                                    <div class="back card" style="width: 5rem;">
+                                      <div class="container-fluid">
+                                      <div class="row">
+                                        
+                                        <div class="col card-list">
+                                            <li class="list-group-item">
+                                                <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+                                            </li>
+                                          </div>
+                                        <div class="col card-list">
+                                            <li class="list-group-item">5</li>
+                                            <li class="list-group-item">3</li>
+                                            <li class="list-group-item">7</li>
+                                        </div>
+                                      </div>
+                                      </div>
+                                    </div>
+                                    </div>
+
+        <script src="jquerylib.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/flip.min.js"></script>
+        <script src="js/moment.js"></script>
+        <script src="js/fullcalendar.js"></script>
+        
+      <script>
+            $(document).ready(function() {
+                var active = false;
+                $('.dropdown-toggle').dropdown();
+                $('.leftmenutrigger').on('click', function(e) {
+                    $('.side-nav').toggleClass('open');
+                    e.preventDefault();
+                });
+                $(function(){
+                    $(".flip").flip({
+                        trigger: 'click'
+                    });
+                });
+                //    full Calendar
+                 var date = new Date();
+                console.log("Date: " + date.getDate() + " Month: " + date.getMonth() + " Year: " + date.getFullYear());
+                
+                var $calendar = $('#calendar').fullCalendar(
+                    {
+                        header:{
+                            left: 'prev,next',
+                            center: 'title',
+                            right: 'today,month,agendaDay,agendaWeek'
+                        }
+                    }
+                )
+                $('#calendar').fullCalendar('option', 'height', 400);
+
+                });
+     
+        </script>
+        
+    </body>
+
+
+</html>
