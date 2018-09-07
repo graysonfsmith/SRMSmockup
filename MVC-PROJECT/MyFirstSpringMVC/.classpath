@@ -13,6 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Program Files/drivers/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/drivers/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/drivers/ojdbc6_g.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Documents/spring jars/cglib-2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Documents/spring jars/log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Documents/spring jars/org-apache-commons-logging.jar"/>
@@ -40,12 +43,9 @@
 	<classpathentry kind="lib" path="C:/Users/syntel/Documents/spring jars/aspectj/aopalliance.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Documents/spring jars/aspectj/aspectj-1.6.10-src.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Documents/spring jars/aspectj/aspectjweaver.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/drivers/ojdbc5.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/drivers/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/drivers/ojdbc6_g.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-1.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-impl.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-impl.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

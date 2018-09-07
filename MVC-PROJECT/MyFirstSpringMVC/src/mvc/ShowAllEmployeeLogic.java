@@ -44,7 +44,7 @@ public class ShowAllEmployeeLogic {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 		JdbcTemplate temp = (JdbcTemplate)context.getBean("jtemp");
-		return (EmployeeClass)temp.queryForObject("select * from employee_data where eid=?", new EmployeeMapper(),eid);
+		return temp.queryForObject("select * from employee_data where eid=?", new EmployeeMapper(),eid);
 		
 		
 	}

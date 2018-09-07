@@ -192,3 +192,6 @@ java.lang.RuntimeException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:656)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:592)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1498)
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2018-09-07 14:09:59.165
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
