@@ -109,13 +109,31 @@
   width: 100%;
 }
 
+.bordered{
+  border: 1px solid rgba(0, 0, 0, 0.125);
+
+}
+
 h5{
   color: white;
+}
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
 }
 
 .addCard{
   width: 100%;
   height: 200px;
+}
+
+a:link{
+  text-decoration: none;
 }
 
 
@@ -400,42 +418,68 @@ h5{
           <div class="col">
             <div class="card">
                 <div class="card-title" style="text-align:center;">
-                  What to add?
+                  Add New Room
                 </div>
               </div>
             </div>
         </div>
         <div class="row">
-          <div class="col card-list">
-              <button type="button" class="btn-primary" data-dismiss="modal"> 
-              <div class="card-body" data-hide="modal">
-                Add new room type
-              </div>
-              <div class="card-body">
-                <img src="Icon-Placeholder.png" style="width: 4rem; height: 4rem; display: block; margin: auto;"/>
-              </div>
-            </button>
-          </div>
-          <div class="col card-list">
-              <button type="button" class="btn-primary" data-dismiss="modal"> 
-              <div class="card-body">
-                Add new feature type
-              </div>
-              <div class="card-body">
-                  <img src="Icon-Placeholder.png" style="width: 4rem; height: 4rem; display: block; margin: auto;"/>
-                </div>
-              </button>
-          </div>
-          <div class="col card-list">
-              <button type="button" class="btn-primary" data-dismiss="modal"> 
-                  <div class="card-body">
-                    add new room           
+            
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Location</label>
                   </div>
-                  <div class="card-body">
-                      <img src="Icon-Placeholder.png" style="width: 4rem; height: 4rem; display: block; margin: auto;"/>
+                  <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>Choose Location</option>
+                    <option value="1">Phoenix</option>
+                    <option value="2">Memphis</option>
+                    <option value="3">Nashville</option>
+                  </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Resource</label>
                     </div>
-                  </button>
-          </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose Resource Type</option>
+                      <option value="1">Break</option>
+                      <option value="2">Scrum</option>
+                      <option value="3">Conference</option>
+                    </select>
+                  </div>
+                
+                  <div class="container">
+                      <div class="row">
+                            <div class="control-group" id="fields">
+                                <label class="control-label" for="field1">Room features</label>
+                                <div class="controls"> 
+                                    <form role="form" autocomplete="off">
+                                        <div class="entry input-group col-xs-3">
+                                            <div class="input-group-prepend">
+                                                <label class="input-group-text" for="inputGroupSelect01">Feature</label>
+                                              </div>
+                                              <select class="custom-select" id="inputGroupSelect01">
+                                                <option selected>Feature Type</option>
+                                                <option value="1">Projectors</option>
+                                                <option value="2">Televisions</option>
+                                                <option value="3">Chairs</option>
+                                              </select>
+                                            <input class="form" name="fields[]" type="number" placeholder="" />
+                                          <span class="input-group-btn">
+                                                <button class="btn btn-success btn-add" type="button">
+                                                    <span class="glyphicon glyphicon-plus">+</span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                <br>
+
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+              
         </div>
         </div>
         </div>
@@ -455,7 +499,7 @@ h5{
 
 
 <script src="js/popper.js"></script>  
-<script src="jquerylib.js"></script>
+<script src="js/jquerylib.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/flip.min.js"></script>
@@ -470,6 +514,29 @@ $(document).ready(function() {
     $('.side-nav').toggleClass('open');
     e.preventDefault();
   });
+$(function()
+{
+    $(document).on('click', '.btn-add', function(e)
+    {
+        e.preventDefault();
+
+        var controlForm = $('.controls form:first'),
+            currentEntry = $(this).parents('.entry:first'),
+            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+        newEntry.find('input').val('');
+        controlForm.find('.entry:not(:last) .btn-add')
+            .removeClass('btn-add').addClass('btn-remove')
+            .removeClass('btn-success').addClass('btn-danger')
+            .html('<span class="glyphicon glyphicon-minus">-</span>');
+    }).on('click', '.btn-remove', function(e)
+    {
+		$(this).parents('.entry:first').remove();
+
+		e.preventDefault();
+		return false;
+	});
+});
   $(function(){
     $(".flip").flip({
       trigger: 'click'
