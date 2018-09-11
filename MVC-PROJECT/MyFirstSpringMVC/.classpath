@@ -47,5 +47,6 @@
 	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-1.0.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/syntel/Downloads/jstl-impl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

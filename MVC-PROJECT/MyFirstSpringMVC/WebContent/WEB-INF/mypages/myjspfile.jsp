@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-mango here
-<br>
-${message1}
-<br>
-${message2}
+	BREHDDDDDDDDDERRRRR
 </body>
 </html>
