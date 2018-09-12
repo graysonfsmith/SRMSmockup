@@ -271,11 +271,17 @@ a:link{
 						<div class="modal-body">
 			              <div class="container-fluid">
 			              <div class="row">
-			                <div class="col-sm">
+
+			              <c:choose>
+			              
+			              <c:when test="${resourceType.name == 'Recreational'}">
+			              <c:forEach var="resource" items="${Recreational}">
+			              
+			                <div class="col">
 			                <div class="flip text-center"> 
 			                    <div class="front card" style="width: 5rem;">
 			                        <div class="card-body">
-			                          <h5 class="card-title">My ${resourceType.name}</h5>
+			                          <h5 class="card-title">${resource.resName}</h5>
 			                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
 			                        </div>
 			                      </div>
@@ -321,6 +327,294 @@ a:link{
 			                      </div>
 			                  </div>
 			                </div>
+			                </c:forEach>
+			                </c:when>
+			              
+			              <c:when test="${resourceType.name == 'Training'}">
+			              <c:forEach var="resource" items="${Training}">
+			              
+			                <div class="col">
+			                <div class="flip text-center"> 
+			                    <div class="front card" style="width: 5rem;">
+			                        <div class="card-body">
+			                          <h5 class="card-title">${resource.resName}</h5>
+			                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+			                        </div>
+			                      </div>
+			                      <div class="back card" style="width: 5rem;">
+			                        <div class="container-fluid">
+			                        <div class="row">
+			                          
+			                          <div class="col card-list">
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                            </div>
+			                          <div class="col card-list">
+			                              <li class="list-group-item">5</li>
+			                              <li class="list-group-item">3</li>
+			                              <li class="list-group-item">7</li>
+			                          </div>
+			                        </div>
+			                        <div class="row">
+									<div class="col">
+										  <br>
+			                              <button type="button" class="btn btn-info btn-room-edit"  data-dismiss="modal" data-toggle="modal" data-target="#EditModal${resourceType.name}">
+			                                  <span class="glyphicon glyphicon-wrench"></span> Edit
+			                                </button>
+			                                <br>
+			                               </div>
+			                           <div class="col">
+			                           		<br>
+			                                <form action="deleteResource/" 
+													onsubmit="return confirm('will be permanently be removed from the system, continue?');">
+													    <input class="btn btn-danger" type="submit" value="Delete" />
+											</form>
+											<br>
+											</div>
+			                        </div>
+			                        </div>
+			                      </div>
+			                  </div>
+			                </div>
+			                </c:forEach>
+			                </c:when>
+			                <c:when test="${resourceType.name == 'Scrum'}">
+			              <c:forEach var="resource" items="${Scrum}">
+			              
+			                <div class="col">
+			                <div class="flip text-center"> 
+			                    <div class="front card" style="width: 5rem;">
+			                        <div class="card-body">
+			                          <h5 class="card-title">${resource.resName}</h5>
+			                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+			                        </div>
+			                      </div>
+			                      <div class="back card" style="width: 5rem;">
+			                        <div class="container-fluid">
+			                        <div class="row">
+			                          
+			                          <div class="col card-list">
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                            </div>
+			                          <div class="col card-list">
+			                              <li class="list-group-item">5</li>
+			                              <li class="list-group-item">3</li>
+			                              <li class="list-group-item">7</li>
+			                          </div>
+			                        </div>
+			                        <div class="row">
+									<div class="col">
+										  <br>
+			                              <button type="button" class="btn btn-info btn-room-edit"  data-dismiss="modal" data-toggle="modal" data-target="#EditModal${resourceType.name}">
+			                                  <span class="glyphicon glyphicon-wrench"></span> Edit
+			                                </button>
+			                                <br>
+			                               </div>
+			                           <div class="col">
+			                           		<br>
+			                                <form action="deleteResource/" 
+													onsubmit="return confirm('will be permanently be removed from the system, continue?');">
+													    <input class="btn btn-danger" type="submit" value="Delete" />
+											</form>
+											<br>
+											</div>
+			                        </div>
+			                        </div>
+			                      </div>
+			                  </div>
+			                </div>
+			                </c:forEach>
+			                </c:when>
+			                <c:when test="${resourceType.name == 'Board'}">
+			              <c:forEach var="resource" items="${Board}">
+			              
+			                <div class="col">
+			                <div class="flip text-center"> 
+			                    <div class="front card" style="width: 5rem;">
+			                        <div class="card-body">
+			                          <h5 class="card-title">${resource.resName}</h5>
+			                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+			                        </div>
+			                      </div>
+			                      <div class="back card" style="width: 5rem;">
+			                        <div class="container-fluid">
+			                        <div class="row">
+			                          
+			                          <div class="col card-list">
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                            </div>
+			                          <div class="col card-list">
+			                              <li class="list-group-item">5</li>
+			                              <li class="list-group-item">3</li>
+			                              <li class="list-group-item">7</li>
+			                          </div>
+			                        </div>
+			                        <div class="row">
+									<div class="col">
+										  <br>
+			                              <button type="button" class="btn btn-info btn-room-edit"  data-dismiss="modal" data-toggle="modal" data-target="#EditModal${resourceType.name}">
+			                                  <span class="glyphicon glyphicon-wrench"></span> Edit
+			                                </button>
+			                                <br>
+			                               </div>
+			                           <div class="col">
+			                           		<br>
+			                                <form action="deleteResource/" 
+													onsubmit="return confirm('will be permanently be removed from the system, continue?');">
+													    <input class="btn btn-danger" type="submit" value="Delete" />
+											</form>
+											<br>
+											</div>
+			                        </div>
+			                        </div>
+			                      </div>
+			                  </div>
+			                </div>
+			                </c:forEach>
+			                </c:when>
+			                
+			                <c:when test="${resourceType.name == 'Break'}">
+			              <c:forEach var="resource" items="${Break}">
+			              
+			                <div class="col">
+			                <div class="flip text-center"> 
+			                    <div class="front card" style="width: 5rem;">
+			                        <div class="card-body">
+			                          <h5 class="card-title">${resource.resName}</h5>
+			                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+			                        </div>
+			                      </div>
+			                      <div class="back card" style="width: 5rem;">
+			                        <div class="container-fluid">
+			                        <div class="row">
+			                          
+			                          <div class="col card-list">
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                            </div>
+			                          <div class="col card-list">
+			                              <li class="list-group-item">5</li>
+			                              <li class="list-group-item">3</li>
+			                              <li class="list-group-item">7</li>
+			                          </div>
+			                        </div>
+			                        <div class="row">
+									<div class="col">
+										  <br>
+			                              <button type="button" class="btn btn-info btn-room-edit"  data-dismiss="modal" data-toggle="modal" data-target="#EditModal${resourceType.name}">
+			                                  <span class="glyphicon glyphicon-wrench"></span> Edit
+			                                </button>
+			                                <br>
+			                               </div>
+			                           <div class="col">
+			                           		<br>
+			                                <form action="deleteResource/" 
+													onsubmit="return confirm('will be permanently be removed from the system, continue?');">
+													    <input class="btn btn-danger" type="submit" value="Delete" />
+											</form>
+											<br>
+											</div>
+			                        </div>
+			                        </div>
+			                      </div>
+			                  </div>
+			                </div>
+			                </c:forEach>
+			                </c:when>
+			                
+			                
+			                <c:when test="${resourceType.name == 'Confrence'}">
+			              <c:forEach var="resource" items="${Confrence}">
+			              
+			                <div class="col">
+			                <div class="flip text-center"> 
+			                    <div class="front card" style="width: 5rem;">
+			                        <div class="card-body">
+			                          <h5 class="card-title">${resource.resName}</h5>
+			                          <img src="Icon-Placeholder.png" style="width: 5rem; height: 5rem;"/>
+			                        </div>
+			                      </div>
+			                      <div class="back card" style="width: 5rem;">
+			                        <div class="container-fluid">
+			                        <div class="row">
+			                          
+			                          <div class="col card-list">
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                              <li class="list-group-item">
+			                                  <img src="Icon-Placeholder.png" style="width: 1rem; height: 1rem;"/>
+			                              </li>
+			                            </div>
+			                          <div class="col card-list">
+			                              <li class="list-group-item">5</li>
+			                              <li class="list-group-item">3</li>
+			                              <li class="list-group-item">7</li>
+			                          </div>
+			                        </div>
+			                        <div class="row">
+									<div class="col">
+										  <br>
+			                              <button type="button" class="btn btn-info btn-room-edit"  data-dismiss="modal" data-toggle="modal" data-target="#EditModal${resourceType.name}">
+			                                  <span class="glyphicon glyphicon-wrench"></span> Edit
+			                                </button>
+			                                <br>
+			                               </div>
+			                           <div class="col">
+			                           		<br>
+			                                <form action="deleteResource/" 
+													onsubmit="return confirm('will be permanently be removed from the system, continue?');">
+													    <input class="btn btn-danger" type="submit" value="Delete" />
+											</form>
+											<br>
+											</div>
+			                        </div>
+			                        </div>
+			                      </div>
+			                  </div>
+			                </div>
+			                </c:forEach>
+			                </c:when>
+			                
+			                
+			                
+			                
+			                
+			                
+			                </c:choose>
 						
                       	</div>
                      </div>
@@ -424,6 +718,7 @@ a:link{
                   </div>
                 
                   <div class="container">
+                  
                       <div class="row">
                             <div class="control-group" id="fields">
                                 <label class="control-label" for="field1">Room features</label>

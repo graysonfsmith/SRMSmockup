@@ -40,6 +40,13 @@ public class FeatureDAO {
     			feature.getFeaType(), feature.getDescription(), feature.getIconPath(), feature.getFeaId());
     }
     
+    // Given resourceID and locationID, returns a list of FeatureModels with corresponding ID's
+    public List<FeatureModel> getFeaturesWithResIDandLocID(int resId, int locId) {
+    	return temp.query("select f.feaId, f.feaType, f.description, f.iconPath from Feature f join ResourceFeature rf on "
+    			+ "f.feaId = rf.feaId join LocationResource lr on rf.locResId = lr.locResId where lr.resId = ? and lr.locId = ?",
+    			new FeatureMapper(), resId, locId);
+    }
+    
     // Returns a list of FeatureModel from Feature table
     public List<FeatureModel> getAllFeatures() {
     	return temp.query("select * from Feature", new FeatureMapper());

@@ -17,11 +17,35 @@ public class ResourceService {
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String ResourceTypeService(ModelMap modelList)
 	{
-		LocationDAO dao1 = new LocationDAO();
-		LocationModel loc = dao1.getLocation(1);
-		List<LocationModel> allLoc = dao1.getAllLocations();
-		ResourceTypeDAO dao2 =  new ResourceTypeDAO();
-		List<ResourceTypeModel> list = dao2.getFromLocation(loc);
+		int count = 0;
+		LocationDAO locdao = new LocationDAO();
+		LocationModel loc = locdao.getLocation(1);
+		List<LocationModel> allLoc = locdao.getAllLocations();
+		ResourceTypeDAO resTypedao =  new ResourceTypeDAO();
+		
+		List<ResourceTypeModel> list = resTypedao.getFromLocation(loc);
+	
+		
+		
+		ResourceDAO resdao = new ResourceDAO();
+		FeatureDAO feadao = new FeatureDAO();
+		
+		
+		for(ResourceTypeModel resType : list) {
+			List<ResourceModel>  resList = resdao.getResourcesWithLocIDandResTypeID(loc.getLocId(), resType.getID());
+			modelList.addAttribute(resType.getName().toString(), resList);
+			for(ResourceModel res : resList) {
+				List<FeatureModel> feaList = feadao.getFeaturesWithResIDandLocID(res.getResId(), loc.getLocId());
+				System.out.println(res.getResName());
+				for(FeatureModel fea : feaList) {
+					
+					System.out.println(fea.getFeaType());
+					
+				}
+			}
+			
+		}
+		
 		
 		modelList.addAttribute("thisLoc", loc);
 		modelList.addAttribute("resourceTypes", list);
@@ -34,11 +58,11 @@ public class ResourceService {
 	@RequestMapping(value="/{locid}", method=RequestMethod.GET)
 	public String ResourceTypeLocationChange(@PathVariable int locid, ModelMap modelList)
 	{
-		LocationDAO dao1 = new LocationDAO();
-		LocationModel loc = dao1.getLocation(locid);
-		List<LocationModel> allLoc = dao1.getAllLocations();
-		ResourceTypeDAO dao2 =  new ResourceTypeDAO();
-		List<ResourceTypeModel> list = dao2.getFromLocation(loc);
+		LocationDAO locdao = new LocationDAO();
+		LocationModel loc = locdao.getLocation(locid);
+		List<LocationModel> allLoc = locdao.getAllLocations();
+		ResourceTypeDAO resTypedao =  new ResourceTypeDAO();
+		List<ResourceTypeModel> list = resTypedao.getFromLocation(loc);
 		
 		modelList.addAttribute("thisloc", loc);
 		modelList.addAttribute("resourceTypes", list);
