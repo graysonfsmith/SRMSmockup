@@ -1,12 +1,12 @@
 package services;
 
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.dao.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -135,12 +135,16 @@ public class VisitorServices {
 		else
 			return new ModelAndView("error");
 	}
+	
+	@RequestMapping(value="CheckOutVis/{visId}")
+	public ModelAndView CheckOutVis(@PathVariable int visId)
+	{	
+		int ret = new VisitorDAO().CheckOutVis(visId);
+		System.out.println("test");
+		if(ret>0)
+			return new ModelAndView("redirect:/visitor");
+		else
+			return new ModelAndView("error");
+	}
 
-	/*
-	 * public static void main(String args[]) {
-	 * 
-	 * List<VisitorsModel> list = new VisitorDAO().getAllVisitors();
-	 * for(VisitorsModel v : list) { System.out.println(v.toString()); } }
-	 * 
-	 */
 }

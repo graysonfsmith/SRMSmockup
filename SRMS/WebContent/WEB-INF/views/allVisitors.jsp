@@ -132,8 +132,35 @@
 		</tbody>
 		<a type="button" href = landing class="btn btn-primary btn-lg btn-block">View Visitor Stuff</a>
 	</table>
-	<table id="example" class="display" style="width: 100%">
-	</table>
+	<table border="3" cellspacing="3" cellpadding="4" 
+	style="background-color: white;border:double;border-color: blue">
+<tr>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Phone</th>
+	<th>Badge ID</th>
+	<th>Purpose</th>
+	<th>Company</th>
+	<th>In Time</th>
+	<th>Out Time</th>
+
+</tr>
+<c:forEach var="vis" items="${allvis}">
+	<tr>
+		<td>${vis.visId}</td>
+		<td>${vis.visName}</td>
+		<td>${vis.visEmail}</td>
+		<td>${vis.visPhone}</td>
+		<td>${vis.badgeId}</td>
+		<td>${vis.visPurpose}</td>
+		<td>${vis.visCompany}</td>
+		<td>${vis.checkIn}</td>
+		<td>${vis.checkOut}</td>
+		<td><a href="CheckOutVis/${vis.visId}">Check Out</a></td>
+	</tr>
+</c:forEach>
+</table>
 	
 	<script src="resources/js/jquerylib.js"></script>
 	<script src="resources/js/fontawesome.js"></script>
@@ -143,64 +170,6 @@
 	<script src="resources/js/jquery.dataTables.min.js"></script>
 	<script src="resources/js/dataTables.bootstrap.min.js"></script>
 	<script>
-		/* Custom filtering function which will search data in column four between two values */
-		$.fn.dataTable.ext.search
-				.push(function(settings, data, dataIndex) {
-					var min = parseInt($('#min').val(), 10);
-					var max = parseInt($('#max').val(), 10);
-					var age = parseFloat(data[0]) || 0; // use data for the age column
-
-					if ((isNaN(min) && isNaN(max))
-							|| (isNaN(min) && age <= max)
-							|| (min <= age && isNaN(max))
-							|| (min <= age && age <= max)) {
-						return true;
-					}
-					return false;
-				});
-
-		var dataSet = [
-				<c:forEach var = "i" begin = "0" end ="100">[
-						"${allvis[i].getVisId()}", "${allvis[i].getVisName()}",
-						"${allvis[i].getVisEmail()}",
-						"${allvis[i].getVisPhone()}",
-						"${allvis[i].getBadgeId()}",
-						"${allvis[i].getVisPurpose()}",
-						"${allvis[i].getVisCompany()}",
-						"${allvis[i].getCheckIn()}",
-						"${allvis[i].getCheckOut()}"], </c:forEach> ];
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable({
-				"order": [[ 7, "desc" ]],
-				data : dataSet,
-				columns : [ {
-					title : "ID"
-				}, {
-					title : "Name"
-				}, {
-					title : "Email"
-				}, {
-					title : "Phone"
-				}, {
-					title : "Badge"
-				}, {
-					title : "Purpose"
-				}, {
-					title : "Company"
-				}, {
-					title : "In Time"
-				}, {
-					title : "Out Time"
-				} ]
-				
-			});
-
-			// Event listener to the two range filtering inputs to redraw on input
-			$('#min, #max').keyup(function() {
-				table.draw();
-			});
-
 		});
         $(document).ready(function() {
             $('.dropdown-toggle').dropdown();
@@ -208,11 +177,6 @@
                 $('.side-nav').toggleClass('open');
                     e.preventDefault();
                 });
-            // $(".btn").on("mouseenter", function () {
-            //     $( this ).css('background',$(this).css('border-color'));
-            // }).on("mouseleave", function () {
-            //     $( this ).css('background','none');
-            // });
             $("#util").on('click',function(){
                  document.location.href = $(this).val();
             });
